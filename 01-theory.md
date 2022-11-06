@@ -23,9 +23,10 @@ A computers processor only understands 0's and 1's, machine code. Since this isn
 JavaScript is a multi-paradigm language, which adds to its popularity. A paradigm is an approach and overall mindset of structuring our code, which influences the coding style and technique in a project. Paradigms can also be classified as Imperative (what the program does without explicitly specifying its control flow) or Declerative (how the program should do something by explicitly specifying each instruction step-by-step).
 
 Three popular paradigms are:
-.._ Procedural programming - logical step-by-step instructions
-.._ Object-oriented programming (OOP)
-..- Functional programming (FP)
+
+- Procedural programming - logical step-by-step instructions
+- Object-oriented programming (OOP)
+- Functional programming (FP)
 
 Most languages are one or the other, but JavaScript does all of it - its really flexible and versatile, we can do whatever we want with it.
 
