@@ -2,7 +2,9 @@
 
 **Simple:** JavaScript is a high-level, object-orientated, multi-paradigm programming language.
 
-**Less Simple:** JavaScript is a `high-level` `prototype based object-oriented` `multi-paradigm` `interpreted or just-in-time compiled` `dynamic` `single-threaded` `garbage-collected` programming language with `first-class functions` and a non-blocking `event loop concurrency model`.
+**Less Simple:** JavaScript is a `high-level` `prototype based object-oriented` `multi-paradigm` `interpreted or just-in-time compiled` `dynamic` `single-threaded` `garbage-collected` programming language with `first-class functions` and a `non-blocking event loop concurrency model`.
+
+What does all of this mean...
 
 ## High-Level
 
@@ -39,7 +41,7 @@ Functions are treated like regular variables and so we can pass functions into o
 
 JavaScript is dynamically typed, we dont assign data types to variables - they only become known when the JavaScript engine executes our code. The type of variable can easily be changed as we reassign variables. In most other programming languages, you have to manually assign types to variables, which prevents a lot of bugs from happening - TypeScript enables the use of types with JavaScript.
 
-## Single-Thread and the Non-Blocking Event Loop Concurrency Model
+## Non-Blocking Event Loop Concurrency Model with a Single-Thread
 
 A `concurrency model` is how the JavaScript engine handles multiple tasks happening at the same time, and a `thread` is a set of instructions that is executed in the computers CPU - its where our code is executed in the machines processor.
 
