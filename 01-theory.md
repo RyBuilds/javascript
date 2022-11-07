@@ -63,26 +63,32 @@ A `JavaScript engine` is a program which executes JavaScript code. Every browser
 
 Every program needs to be converted into machine code since computer processors only understands 0's and 1's, and this can happen using compilation or interpretation.
 
-### Compilation
-
+<details>
+<summary>Compilation</summary>
 Compilation is when entire source code is converted into machine code at once, and written to a binary file (portable file) that can be executed by any computer. It's a two step process; first the machine code is built, then it's executed in the CPU. Execution can happen way after the compilation; any application being used right now had been compiled before, and its being executed way after its compilation.
 
 **Source code** &rarr; Step 1: Compilation &rarr; **Portable file:** Machine code &rarr; Step 2: Execution &rarr; Program running
 
-### Interpretation
+</details>
 
+<details>
+<summary>Interpretation</summary>
 Interpretation is when an interpreter runs through the source code and executes it line by line. There's no two-step process like in compilation, the code is read and executed at the same time right before it's executed, not ahead of time. For this reason, it's much slower than compiled languages.
 
 **Source code** &rarr; Step 1: Execution line by line &rarr; Program running
 
-### Just-in-Time Compilation
+</details>
 
+<details>
+<summary>Just-in-Time Compilation</summary>
 Just-in-time compilation is when entire code is converted into machine code at once, and executed immediately. This is a combination of compilation and interpretation; there are still the two steps of regular ahead-of-time compilation, but there is no portable file to execute, and execution happens immediately after compilation.
 
 **Source code** &rarr; Step 1: Compilation &rarr; Machine code &rarr; Step 2: Immediate execution &rarr; Program running
 
+</details>
+
 ## How JavaScript Engines Compile Source Code
 
-As a piece of code enters the JavaScript engine, the first step is to parse the code; read the code. During the parsing process, the code is passed into a data structure called the `Abstract Syntax Tree (AST)`. This works first by splitting up each line of code into pieces that are meaningful to the language like const or function keywords, and then saving all of these pieces into the tree in a structured way. This step also checks if there are any syntax errors, and the resulting tree will be used later to generate the machine code. The next step is compilation, which takes the generated AST and compiles it into machine code. This machine code then gets executed right away - and this happens in the callstack.
+As a piece of code enters the JavaScript engine, the first step is to parse (read) the code. During the parsing process, the code is passed into a data structure called the `Abstract Syntax Tree (AST)`. This works first by splitting up each line of code into pieces that are meaningful to the language (for example const or function keywords), and then saving all of these pieces into the AST in a structured way. This step also checks if there are any syntax errors, and the resulting tree will be used later to generate the machine code. The next step is compilation, which takes the generated AST and compiles it into machine code. This machine code then gets executed in the callstack right away.
 
-Modern JavaScript have clever optimisation strategies; they create a very unoptimised version of machine code in the beginning just so it can start executing as fast as possible. Then in the background, this code is being optimised and recompiled during the already running program execution, which can be done multiple times, and after each optimisation. The unoptimised code is simply swapped for the new and more optimised code without ever stopping execution. This process is what makes modern engines so fast. All this parsing, compilation and optimisation happens in some special threads inside the engine which we cannot access from our code, so completely seperate to the main thread running in the callstack and executing our own code.
+Modern JavaScript have clever optimisation strategies; initially they create a very unoptimised version of machine code so it can start executing as fast as possible. Then in the background, this code is being optimised and recompiled during the already running program execution, which can be done multiple times. After each optimisation, the unoptimised code is simply swapped for the new and more optimised code without ever stopping execution. This process is what makes modern engines so fast. All this parsing, compilation and optimisation happens in some special threads inside the engine which we cannot access from our code, so completely seperate to the main thread running in the callstack and executing our own code.
